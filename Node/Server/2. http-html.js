@@ -1,8 +1,7 @@
 const http = require("http");
 
 http.createServer((req, res) => {
-  if (req.url === "/") {
-    // Serve HTML from this same file
+  if (req.url === "/") { 
     const html = `
       <!DOCTYPE html>
       <html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pet Registration</title>
+</head>
+<body>
+  <h1>Register Pet</h1>
+  <form id="petForm">
+    <input type="text" id="name" placeholder="Pet Name" required />
+    <input type="text" id="type" placeholder="Pet Type (e.g. Dog, Cat)" required />
+    <input type="number" id="age" placeholder="Pet Age" required />
+    <button type="submit">Submit</button>
+  </form>
+
+  <h2>📋 All Pets</h2>
+  <ul id="petList"></ul>
+
+  <h2>📊 Average Age per Type</h2>
+  <ul id="avgList"></ul>
+
+  <script>
+    const form = document.getElementById('petForm');
+    const petList = document.getElementById('petList');
+    const avgList = document.getElementById('avgList');
+
+    async function fetchPets() {
+      const res = await fetch('http://localhost:3000/pets');
+      const pets = await res.json();
+      petList.innerHTML = '';
+      pets.forEach(pet => {
+        petList.innerHTML += `<li>${pet.name} (${pet.type}, ${pet.age} years)</li>`;
+      });
+    }
+
+    async function fetchAverages() {
+      const res = await fetch('http://localhost:3000/pets/average');
+      const avgs = await res.json();
+      avgList.innerHTML = '';
+      avgs.forEach(item => {
+        avgList.innerHTML += `<li>${item._id}: ${item.avgAge.toFixed(2)} years</li>`;
+      });
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const type = document.getElementById('type').value;
+      const age = parseInt(document.getElementById('age').value);
+
+      await fetch('http://localhost:3000/pets', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, type, age }),
+      });
+
+      form.reset();
+      fetchPets();
+      fetchAverages();
+    });
+
+    // Initial load
+    fetchPets();
+    fetchAverages();
+  </script>
+</body>
+</html>

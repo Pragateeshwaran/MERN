@@ -56,5 +56,5 @@ class Queue<T> {
   mixQueue.enqueue("hello");
   mixQueue.enqueue(42);
   mixQueue.enqueue({ x: 1 });
-  mixQueue.print(); // ["hello", 42, { x: 1 }]
+  mixQueue.print(); // ["hello", 42, { x: 1 }]  
   
