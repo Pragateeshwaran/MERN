@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        li {
+            width: 150px;
+            height: 50px;
+            color: black;
+            background-color: salmon;
+            border: 5px solid black;
+            margin-bottom: 5px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <ul style="list-style-type: none; padding: 0;">
+        <li id="item1"  draggable="true" ondragstart="drag(event)"  ondragover="allowDrop(event)"  ondrop="drop(event)">Item1</li>
+        <li id="item2"  draggable="true" ondragstart="drag(event)"  ondragover="allowDrop(event)"  ondrop="drop(event)">Item2</li>
+        <li id="item3"  draggable="true" ondragstart="drag(event)"  ondragover="allowDrop(event)"  ondrop="drop(event)">Item3</li>
+        <li id="item4"  draggable="true" ondragstart="drag(event)"  ondragover="allowDrop(event)"  ondrop="drop(event)">Item4</li>
+    </ul>
+    <script>
+        function drag(event){
+            event.dataTransfer.setData("text", event.target.id);
+        }
+        
+        function allowDrop(event){
+            event.preventDefault();
+        }
+        
+        function drop(event) {
+            event.preventDefault();
+            let data = event.dataTransfer.getData("text");
+            let draggedItem = document.getElementById(data);
+            let target = event.target;              
+            target.parentNode.insertBefore(draggedItem, target);
+
+        }
+    </script>
+</body>
+</html>
