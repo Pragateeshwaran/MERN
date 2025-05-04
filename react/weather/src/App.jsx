@@ -21,7 +21,7 @@ function App() {
         alert(`Error: ${data.message}`);
         return;
       }
-
+      
       setWeather(data);
     } catch (err) {
       console.error('Fetch error:', err);

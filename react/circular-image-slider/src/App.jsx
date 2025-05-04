@@ -81,7 +81,7 @@ export default function CircularImageSlider(){
     const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 ) % images.length);
   };
 
   const handleNext = () => {
