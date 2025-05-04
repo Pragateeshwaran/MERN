@@ -16,7 +16,7 @@ class Stack<T> {
     // Peek at the top item without removing
     peek(): T | undefined {
       return this.items[this.items.length - 1];
-    }
+    } 
   
     // Check if the stack is empty
     isEmpty(): boolean {

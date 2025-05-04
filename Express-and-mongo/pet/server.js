@@ -1,15 +1,13 @@
 // server.js
 const express = require('express');
-const cors = require('cors');
 const { MongoClient } = require('mongodb');
 
 const app = express();
 const PORT = 3000;
-app.use(cors());
 app.use(express.json());
 
 // MongoDB setup
-const uri = 'mongodb://127.0.0.1:27017/mern-app'; // Use 127.0.0.1 to avoid potential DNS issues
+const uri = 'mongodb://127.0.0.1:27017'; // Use 127.0.0.1 to avoid potential DNS issues
 const client = new MongoClient(uri);
 
 let petCollection;

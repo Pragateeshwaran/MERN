@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .holiday-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .holiday-card {
+            /* display: inline-block; */
+            width: 1000px;
+            margin: 15px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .holiday-card:hover {
+            transform: translateY(-5px);
+        }
+        .holiday-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .holiday-info {
+            padding: 15px;
+            background: red;
+        }
+        .holiday-info h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .holiday-info p {
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="holiday-container">
+        <div class="holiday-card">
+            <img src="http://ts3.mm.bing.net/th?id=OIP.FL6r-StiKPIoGxDaylYHMwHaEb&pid=15.1" alt="Beach Resort">
+            <div class="holiday-info">
+                <h3>Beach Resort</h3>
+                <p>Enjoy pristine beaches and crystal clear waters.</p>
+            </div>
+        </div>
+        <div class="holiday-card">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.8MQaDvFKKT0lSxS2H5vHfQHaEK?w=288&h=180&c=7&r=0&o=5&pid=1.7" alt="Mountain Resort">
+            <div class="holiday-info">
+                <h3>Mountain Retreat</h3>
+                <p>Experience the serenity of mountain landscapes.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

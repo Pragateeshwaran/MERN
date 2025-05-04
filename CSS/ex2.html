@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .album {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .photo {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .photo:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transform: translateX(5px);
+        }
+        .photo img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .photo-info {
+            padding: 15px;
+            background: white;
+        }
+        .photo-info h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        .photo-info p {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav style="height: 50px; width:100%; background-color: #367214; " ></nav>
+
+    <div class="album">
+        <!-- img1 -->
+        <div class="photo">
+            <img src="https://th.bing.com/th?id=OIP.Kso48PMNTJFa3GKzgLEV_wHaE7&w=306&h=204&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Vacation Photo">
+            <div class="photo-info">
+                <h3>Beach Resort</h3>
+                <p>Beach day with family. We had a fantastic time building sandcastles and swimming in the ocean.</p>
+            </div>
+        </div>
+        <!-- img2 -->
+        <div class="photo">
+            <img src="https://th.bing.com/th?id=OIP.tfrn4PUEzrrhU-aj0EhjNwHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Vacation Photo">
+            <div class="photo-info">
+                <h3>Summer Vacation</h3>
+                <p>Beach day with family. We enjoyed a picnic on the beach with delicious snacks and refreshing drinks.</p>
+            </div>
+        </div>
+        <!-- img3 -->
+        <div class="photo">
+            <img src="https://th.bing.com/th?id=OIP.pz6Uj_wEL2vgh-93BzXIxQHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Vacation Photo">
+            <div class="photo-info">
+                <h3>Swinging Pool</h3>
+                <p>Beach day with family. We watched a beautiful sunset together, making it a perfect end to the day.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+

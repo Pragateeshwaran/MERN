@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Drag and Drop</title>
+  <style>
+    ul {
+      list-style-type: none;
+      padding: 0;
+      width: 200px;
+      margin: 20px auto;
+    }
+    li {
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      cursor: move;
+    }
+    .dragging {
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <ul id="draggable-list">
+    <li draggable="true">Item 1</li>
+    <li draggable="true">Item 2</li>
+    <li draggable="true">Item 3</li>
+    <li draggable="true">Item 4</li>
+    <li draggable="true">Item 5</li>
+  </ul>
+
+  <script>
+    const list = document.getElementById('draggable-list');
+    let draggedItem = null;
+
+    const items = list.querySelectorAll('li');
+    items.forEach(item => {
+      item.addEventListener('dragstart', function () {
+        draggedItem = item;
+        item.classList.add('dragging');
+      });
+
+      item.addEventListener('dragend', function () {
+        item.classList.remove('dragging');
+        draggedItem = null;
+      });
+    });
+
+    list.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      const afterElement = getDragAfterElement(list, e.clientY);
+      const dragging = document.querySelector('.dragging');
+      if (!afterElement) {
+        list.appendChild(dragging);
+      } else {
+        list.insertBefore(dragging, afterElement);
+      }
+    });
+
+    function getDragAfterElement(container, mouseY) {
+    const draggableItems = [...container.querySelectorAll('li:not(.dragging)')];
+
+    let closestItem = null;
+    let smallestOffset = -Infinity;
+
+    for (const item of draggableItems) {
+        const box = item.getBoundingClientRect();
+        const offset = mouseY - (box.top + box.height / 2);
+
+        if (offset < 0 && offset > smallestOffset) {
+        smallestOffset = offset;
+        closestItem = item;
+        }
+    }
+
+    return closestItem;
+    }
+
+  </script>
+</body>
+</html>

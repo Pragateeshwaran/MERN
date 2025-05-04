@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Popup Blocker Detection</title>
+    <script>
+        function checkPopup() {
+            let popup = window.open("https://example.com", "_blank");
+
+            if (!popup) {
+                document.getElementById("result").innerText = "Pop-up was blocked by the browser!";
+            } else {
+                setTimeout(() => {
+                    if (popup.closed || popup.outerHeight === 0) {
+                        document.getElementById("result").innerText = "Pop-up was blocked or failed to open!";
+                    } else {
+                        document.getElementById("result").innerText = "Pop-up opened successfully.";
+                        popup.close();
+                    }
+                }, 500);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Check Pop-up Blocker</h2>
+    <button onclick="checkPopup()">Test Pop-up</button>
+    <p id="result"></p>
+</body>
+</html>

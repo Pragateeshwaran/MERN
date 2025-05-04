@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css">
+    <title>Quiz Result</title>
+</head>
+<body>
+    <h2>Congratulations, <%= name %>!</h2>
+    <p>Your Score: <%= score %> / <%= total %></p>
+    <% if (score >= total * 0.7) { %>
+        <h3>Great job! You passed the quiz.</h3>
+    <% } else { %>
+        <h3>Good effort! Try again to improve your score.</h3>
+    <% } %>
+    <a href="/">Try Again</a>
+</body>
+</html>
