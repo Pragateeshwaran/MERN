@@ -25,8 +25,9 @@ const sampleQuestions = [
   { question: "What is the capital of France?", options: ["London", "Paris", "Berlin", "Madrid"], correctAnswer: "Paris" }
 ];
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
-// Routes
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -68,7 +69,6 @@ MongoClient.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true
     db = client.db(DB_NAME);
     questionsCollection = db.collection(COLLECTION_NAME);
 
-    // Insert sample questions
     await questionsCollection.deleteMany({});
     await questionsCollection.insertMany(sampleQuestions);
     console.log('Sample questions inserted');
