@@ -59,7 +59,7 @@ function list(){
         <ul>
           {
             targetnames.map((fruit)=>
-                  (<li> {fruit} </li>)
+                  {return <li> {fruit} </li>}
             )
           }
         </ul>
